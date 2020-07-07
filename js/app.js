@@ -29,4 +29,25 @@
         const promise = auth.signInWithEmailAndPassword(email, pass);
         promise.catch(e => console.log(e.message));
     });
+
+    // Add signup event
+    btnSignUp.addEventListener('click', e => {
+        // Get email and pass
+        // TODO: CHECK 4 REAL EMAILZ // ควรจะมีการ check ว่า input email เป็น email จริงด้วย
+        const email = txtEmail.value;
+        const pass = txtPassword.value;
+        const auth = firebase.auth();
+        // Sign in
+        const promise = auth.createUserWithEmailAndPassword(email, pass);   // หลังจาก create user แล้วไม่เกิดอะไรขึ้น
+        promise.catch(e => console.log(e.message)); // ไม่สามารถใช้ promise.then ดึงข้อมูล user ได้ด้วยเนื่องจากถูกทิ้งไปแล้ว เลยทำให้ไม่รู้ว่า user ถูก create รึเปล่า
+    });
+
+    // // Add a realtime listener
+    // firebase.auth.onAuthStateChanged(firebaseUser => {  // ใช้ตรวจสอบเมื่อมีการเปลี่ยน state ของการ Authen
+    //     if (firebaseUser) { // ตรวจสอบ firebase user ว่าไม่เท่ากับ null (ถ้าเป็น null แสดงว่าไม่มีข้อมูล firebase user)
+    //         console.log(firebaseUser);
+    //     } else {
+    //         console.log('not logged in');
+    //     }
+    // });
 }());
