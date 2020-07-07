@@ -9,7 +9,8 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,500' rel='stylesheet'>
     <style>
-        html, body {
+        html,
+        body {
             height: 100%
         }
     </style>
@@ -25,15 +26,23 @@
     <div class="h-100 row align-items-center">
         <div class="container">
             <div class="row">
-                <div class="form-group">
+                <div class="col-3">
                     <label for="txtEmail">Email</label>
+                </div>
+                <div class="col-9">
                     <input type="email" class="form-control" id="txtEmail" placeholder="Email" />
                 </div>
-                <div class="form-group">
+            </div>
+            <div class="row">
+                <div class="col-3">
                     <label for="txtPassword">Password</label>
+                </div>
+                <div class="col-9">
                     <input type="password" class="form-control" id="txtPassword" placeholder="Password" />
                 </div>
-                <div class="form-group">
+            </div>
+            <div class="row">
+                <div class="col">
                     <button id="btnLogin" class="btn btn-primary">Log in</button>
                     <button id="btnSignUp" class="btn btn-secondary">Sign Up</button>
                     <button id="btnLogout" class="btn btn-primary d-none">Log out</button>
