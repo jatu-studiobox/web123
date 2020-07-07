@@ -42,12 +42,19 @@
         promise.catch(e => console.log(e.message)); // ไม่สามารถใช้ promise.then ดึงข้อมูล user ได้ด้วยเนื่องจากถูกทิ้งไปแล้ว เลยทำให้ไม่รู้ว่า user ถูก create รึเปล่า
     });
 
+    // Add log out event
+    btnLogout.addEventListener('click', e => {
+        firebase.auth().signOut();  // sign out authenticated user ปัจจุบันที่ login อยู่
+    });
+
     // // Add a realtime listener
     firebase.auth().onAuthStateChanged(firebaseUser => {  // ใช้ตรวจสอบเมื่อมีการเปลี่ยน state ของการ Authen
         if (firebaseUser) { // ตรวจสอบ firebase user ว่าไม่เท่ากับ null (ถ้าเป็น null แสดงว่าไม่มีข้อมูล firebase user)
             console.log(firebaseUser);
+            btnLogout.classList.remove('d-none');   // เอา css class 'd-none' ออก เพื่อแสดงปุ่ม logout ออกมา
         } else {
             console.log('not logged in');
+            btnLogout.classList.add('d-none');   // เพิ่ม css class 'd-none' เข้าไป เพื่อซ่อนปุ่ม logout
         }
     });
 }());
