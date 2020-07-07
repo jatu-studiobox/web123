@@ -43,7 +43,7 @@
     });
 
     // // Add a realtime listener
-    firebase.auth.onAuthStateChanged(firebaseUser => {  // ใช้ตรวจสอบเมื่อมีการเปลี่ยน state ของการ Authen
+    firebase.auth().onAuthStateChanged(firebaseUser => {  // ใช้ตรวจสอบเมื่อมีการเปลี่ยน state ของการ Authen
         if (firebaseUser) { // ตรวจสอบ firebase user ว่าไม่เท่ากับ null (ถ้าเป็น null แสดงว่าไม่มีข้อมูล firebase user)
             console.log(firebaseUser);
         } else {
